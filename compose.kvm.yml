@@ -1,0 +1,6 @@
+services:
+  windows:
+    environment:
+      KVM: "Y"
+    devices:
+      - "/dev/kvm:/dev/kvm"
