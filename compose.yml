@@ -1,0 +1,24 @@
+services:
+  windows:
+    image: dockurr/windows:latest
+    container_name: pc-free-windows
+    environment:
+      VERSION: "10"
+      LANGUAGE: "Arabic"
+      USERNAME: ${WINDOWS_USERNAME}
+      PASSWORD: ${WINDOWS_PASSWORD}
+      RAM_SIZE: "4G"
+      CPU_CORES: "2"
+      KVM: "N"
+      PROTECT: "Y"
+    ports:
+      - "8006:8006"
+    volumes:
+      - windows-data:/storage
+    cap_add:
+      - NET_ADMIN
+    stop_grace_period: 2m
+    restart: unless-stopped
+
+volumes:
+  windows-data:
